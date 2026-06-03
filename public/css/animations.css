@@ -1,0 +1,141 @@
+/* animations.css — Transiciones de slides y micro-animaciones */
+
+/* ── Slide base ────────────────────────────────────────────────────────── */
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 90%;
+  height: 85%;
+  max-width: 1200px;
+  margin: auto;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* Slide visible */
+.slide.is-active {
+  display: flex;
+  opacity: 1;
+}
+
+/* ── Transición de entrada / salida ─────────────────────────────────────── */
+
+/* Estado inicial antes de entrar (fuera a la derecha) */
+.slide.is-entering-right {
+  transform: translate(calc(-50% + 40px), -50%);
+  opacity: 0;
+}
+/* Estado inicial antes de entrar (fuera a la izquierda) */
+.slide.is-entering-left {
+  transform: translate(calc(-50% - 40px), -50%);
+  opacity: 0;
+}
+
+/* Slide que sale hacia la izquierda */
+.slide.is-leaving-left {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+/* Slide que sale hacia la derecha */
+.slide.is-leaving-right {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+/* Durante la transición: animar hacia posición final */
+.slide.is-transitioning {
+  transition:
+    transform var(--transition-slide),
+    opacity   var(--transition-slide);
+}
+
+.slide.is-transitioning.is-leaving-left {
+  transform: translate(calc(-50% - 40px), -50%);
+  opacity: 0;
+}
+.slide.is-transitioning.is-leaving-right {
+  transform: translate(calc(-50% + 40px), -50%);
+  opacity: 0;
+}
+.slide.is-transitioning.is-entering-right,
+.slide.is-transitioning.is-entering-left {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+/* ── Stagger de contenido interno ──────────────────────────────────────── */
+/* Cuando el slide se activa, los hijos directos del body aparecen en cascada */
+@keyframes slideContentIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.slide.is-active .slide-header {
+  animation: slideContentIn 0.3s ease both;
+  animation-delay: 0.05s;
+}
+
+.slide.is-active .slide-body > * {
+  animation: slideContentIn 0.32s ease both;
+}
+.slide.is-active .slide-body > *:nth-child(1) { animation-delay: 0.10s; }
+.slide.is-active .slide-body > *:nth-child(2) { animation-delay: 0.17s; }
+.slide.is-active .slide-body > *:nth-child(3) { animation-delay: 0.23s; }
+.slide.is-active .slide-body > *:nth-child(4) { animation-delay: 0.28s; }
+.slide.is-active .slide-body > *:nth-child(5) { animation-delay: 0.32s; }
+
+/* ── Barra de progreso ──────────────────────────────────────────────────── */
+@keyframes progressGlow {
+  0%, 100% { box-shadow: 0 0 6px var(--color-cyan-glow); }
+  50%       { box-shadow: 0 0 14px var(--color-cyan-glow); }
+}
+
+#progress-fill {
+  transition: width var(--transition-slide);
+  animation: progressGlow 2.5s ease-in-out infinite;
+}
+
+/* ── Micro-animaciones de botones ───────────────────────────────────────── */
+.btn, .btn-icon {
+  transition:
+    background var(--transition-fast),
+    color       var(--transition-fast),
+    border-color var(--transition-fast),
+    transform   var(--transition-fast),
+    box-shadow  var(--transition-fast);
+}
+
+.btn:hover, .btn-icon:hover {
+  transform: translateY(-1px);
+}
+.btn:active, .btn-icon:active {
+  transform: translateY(0);
+}
+
+/* ── Index panel slide-in ───────────────────────────────────────────────── */
+#index-panel {
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Quiz overlay fade ──────────────────────────────────────────────────── */
+@keyframes quizFadeIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+#quiz-overlay.is-open .quiz-card {
+  animation: quizFadeIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ── Overlay fade ───────────────────────────────────────────────────────── */
+#index-overlay {
+  transition: opacity var(--transition-normal);
+  opacity: 0;
+  pointer-events: none;
+}
+#index-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}

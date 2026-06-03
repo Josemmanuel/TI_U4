@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas de Memoria y Gestión de Recursos</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ── HUD ─────────────────────────────────────────────────────────── -->
+  <div id="progress-track">
+    <div id="progress-fill"></div>
+  </div>
+  <div id="section-label" aria-live="polite"></div>
+
+  <!-- ── Index overlay (cierre por click fuera) ───────────────────────── -->
+  <div id="index-overlay" aria-hidden="true"></div>
+
+  <!-- ── Panel de índice ──────────────────────────────────────────────── -->
+  <nav id="index-panel" aria-label="Índice de diapositivas">
+    <div id="index-header">
+      <h3>📋 Índice</h3>
+      <button id="btn-close-index" aria-label="Cerrar índice">✕</button>
+    </div>
+    <div id="index-list" role="list"></div>
+  </nav>
+
+  <!-- ── Quiz overlay ─────────────────────────────────────────────────── -->
+  <div id="quiz-overlay" role="dialog" aria-modal="true" aria-label="Quiz interactivo">
+    <div class="quiz-card">
+      <h3>⚡ Quiz Rápido</h3>
+      <div id="quiz-question" aria-live="polite"></div>
+      <div id="quiz-options" role="group" aria-label="Opciones de respuesta"></div>
+      <div id="quiz-feedback" aria-live="polite" class="quiz-feedback"></div>
+      <div class="quiz-footer">
+        <span id="quiz-score" aria-live="polite"></span>
+        <div style="display:flex; gap:10px;">
+          <button class="btn" id="btn-quiz-next" hidden>Siguiente →</button>
+          <button class="btn" id="btn-quiz-close">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Deck ─────────────────────────────────────────────────────────── -->
+  <main id="deck" aria-label="Presentación">
+    <!-- Navbar de herramientas -->
+    <nav class="toolbar-navbar">
+      <div class="toolbar-icons">
+        <button class="btn-icon" id="btn-index"  title="Índice (I)"        aria-label="Abrir índice">☰</button>
+        <button class="btn-icon" id="btn-pdf"    title="Descargar PDF (P)" aria-label="Descargar PDF">📄</button>
+        <button class="btn-icon" id="btn-quiz-open" title="Quiz (Q)"       aria-label="Abrir quiz">⚡</button>
+      </div>
+    </nav>
+
+    <div id="slide-container"></div>
+
+    <!-- Navegación -->
+    <div class="controls-nav">
+      <button class="btn" id="btn-prev" aria-label="Diapositiva anterior">← Anterior</button>
+      <button class="btn" id="btn-next" aria-label="Diapositiva siguiente">Siguiente →</button>
+    </div>
+  </main>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
