@@ -15,6 +15,10 @@ export const slides = [
                 Fusión fluida entre el diseño físico del silicio (Unidad 4) y el rol administrativo del Kernel para el diseño de software eficiente (Unidad 3).
             </p>
         </div>
+        <div class="teacher-notes">
+            <div class="teacher-notes-title">💡 Notas de Dictado (0-3 min)</div>
+            <p>Iniciar la clase remarcando la importancia del trilema de diseño del hardware y cómo repercute directamente en la estabilidad del software que ellos programan.</p>
+        </div>`
   },
   {
     id: 2,
@@ -145,6 +149,11 @@ export const slides = [
                     <p style="font-size:0.9rem;">El precio por bit se incrementa exponencialmente al aproximarse al núcleo de ejecución directa en silicio.</p>
                 </div>
             </div>
+            <div class="teacher-notes">
+                <div class="teacher-notes-title">📌 Pregunta guía para el grupo</div>
+                <p>¿Qué sucedería si elimináramos la caché y conectáramos el CPU directo a la RAM DDR5? Respuesta: Pérdida dramática de rendimiento por latencia de bus.</p>
+            </div>
+        </div>`
   },
   {
     id: 8,
@@ -578,6 +587,11 @@ export const slides = [
                 <li><strong>Definición:</strong> El conjunto indexado de direcciones de memoria lógica que un proceso específico puede referenciar en su código.</li>
                 <li><strong>Aislamiento:</strong> El mapa del <em>Proceso A</em> es independiente al del <em>Proceso B</em>. La instrucción virtual <code>0x00400000</code> mapea a posiciones físicas de silicio totalmente separadas en cada aplicación.</li>
             </ul>
+            <div class="teacher-notes">
+                <div class="teacher-notes-title">💡 Analogía pedagógica para el pizarrón</div>
+                <p>Es el equivalente a las habitaciones numeradas en hoteles separados: la habitación "205" del Hotel Centro contiene huéspedes diferentes a la habitación "205" del Hotel Norte.</p>
+            </div>
+        </div>`
   },
   {
     id: 25,

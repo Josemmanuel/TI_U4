@@ -14,7 +14,7 @@ export const slides = [
             <p style="text-align: center; max-width: 800px; margin: 20px auto 0 auto; color: #94a3b8;">
                 Fusión fluida entre el diseño físico del silicio (Unidad 4) y el rol administrativo del Kernel para el diseño de software eficiente (Unidad 3).
             </p>
-        </div>
+        </div>`
   },
   {
     id: 2,
@@ -144,7 +144,7 @@ export const slides = [
                     <h4 style="color:#f59e0b; margin-bottom:10px;">3. Costo</h4>
                     <p style="font-size:0.9rem;">El precio por bit se incrementa exponencialmente al aproximarse al núcleo de ejecución directa en silicio.</p>
                 </div>
-            </div>
+            </div>`
   },
   {
     id: 8,
@@ -578,6 +578,7 @@ export const slides = [
                 <li><strong>Definición:</strong> El conjunto indexado de direcciones de memoria lógica que un proceso específico puede referenciar en su código.</li>
                 <li><strong>Aislamiento:</strong> El mapa del <em>Proceso A</em> es independiente al del <em>Proceso B</em>. La instrucción virtual <code>0x00400000</code> mapea a posiciones físicas de silicio totalmente separadas en cada aplicación.</li>
             </ul>
+        </div>`
   },
   {
     id: 25,
